@@ -11,6 +11,7 @@
         private System.Windows.Forms.Button btnSetParameter;
         private System.Windows.Forms.Label lblIpAddress;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.CheckBox chkCaptureWithNormals; // Add this line
 
         protected override void Dispose(bool disposing)
         {
@@ -31,6 +32,8 @@
             this.btnSetParameter = new System.Windows.Forms.Button();
             this.lblIpAddress = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.chkCaptureWithNormals = new System.Windows.Forms.CheckBox();
+            this.btnSetPointCloudFilter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtIpAddress
@@ -106,9 +109,31 @@
             this.lblStatus.TabIndex = 7;
             this.lblStatus.Text = "Status";
             // 
+            // chkCaptureWithNormals
+            // 
+            this.chkCaptureWithNormals.AutoSize = true;
+            this.chkCaptureWithNormals.Location = new System.Drawing.Point(20, 220);
+            this.chkCaptureWithNormals.Name = "chkCaptureWithNormals";
+            this.chkCaptureWithNormals.Size = new System.Drawing.Size(155, 20);
+            this.chkCaptureWithNormals.TabIndex = 8;
+            this.chkCaptureWithNormals.Text = "Capture with Normals";
+            this.chkCaptureWithNormals.UseVisualStyleBackColor = true;
+            // 
+            // btnSetPointCloudFilter
+            // 
+            this.btnSetPointCloudFilter.Location = new System.Drawing.Point(220, 217);
+            this.btnSetPointCloudFilter.Name = "btnSetPointCloudFilter";
+            this.btnSetPointCloudFilter.Size = new System.Drawing.Size(219, 23);
+            this.btnSetPointCloudFilter.TabIndex = 9;
+            this.btnSetPointCloudFilter.Text = "Set Point Cloud Filter";
+            this.btnSetPointCloudFilter.UseVisualStyleBackColor = true;
+            this.btnSetPointCloudFilter.Click += new System.EventHandler(this.btnSetPointCloudFilter_Click);
+            // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(451, 221);
+            this.ClientSize = new System.Drawing.Size(451, 261);
+            this.Controls.Add(this.btnSetPointCloudFilter);
+            this.Controls.Add(this.chkCaptureWithNormals);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblIpAddress);
             this.Controls.Add(this.btnSetParameter);
@@ -123,6 +148,8 @@
             this.PerformLayout();
 
         }
+
+        private System.Windows.Forms.Button btnSetPointCloudFilter;
     }
 }
 

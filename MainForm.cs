@@ -45,14 +45,29 @@ namespace MechMindCameraTest
             string untexturedFilePath = "PointCloud.pcd";
             string texturedFilePath = "TexturedPointCloud.pcd";
 
-            bool isCaptured = _mechMindCamera.CapturePointCloud(untexturedFilePath, texturedFilePath);
+            bool isCaptured;
+            if (chkCaptureWithNormals.Checked)
+            {
+                isCaptured = _mechMindCamera.CapturePointCloudWithNormal(untexturedFilePath, texturedFilePath);
+            }
+            else
+            {
+                isCaptured = _mechMindCamera.CapturePointCloud(untexturedFilePath, texturedFilePath);
+            }
+
             txtStatus.Text = isCaptured ? "Point cloud captured successfully." : "Failed to capture point cloud.";
         }
 
         private void btnSetParameter_Click(object sender, EventArgs e)
         {
-            _mechMindCamera.SetParameter("Exposure", 100); // Example parameter setting
+            _mechMindCamera.SetScanningParameters(CameraScanningParameter.ExposureMode, 100); // Example parameter setting
             txtStatus.Text = "Parameter set.";
+        }
+
+        private void btnSetPointCloudFilter_Click(object sender, EventArgs e)
+        {
+            _mechMindCamera.SetPointCloudProcessingParameters(PointCloudProcessingParameter.OutlierRemoval, 1); // Example parameter setting
+            txtStatus.Text = "PointCloudProcessingParameters Parameter set.";
         }
     }
 }
