@@ -1,6 +1,6 @@
 # MechMind-API-Debug
 This Repo aims to develop API functions to interacting with Mech-Mind Scanner 
-## Namespace: MechMindCameraTest
+## MechMindCamera.cs Structure
 - ### Enums
   - **CameraScanningParameter**
     - `ExposureMode`
