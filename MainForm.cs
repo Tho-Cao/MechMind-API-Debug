@@ -42,8 +42,9 @@ namespace MechMindCameraTest
 
         private void btnCapturePointCloud_Click(object sender, EventArgs e)
         {
-            string untexturedFilePath = "PointCloud.pcd";
-            string texturedFilePath = "TexturedPointCloud.pcd";
+            string currentDirectory = System.IO.Directory.GetCurrentDirectory();
+            string untexturedFilePath = System.IO.Path.Combine(currentDirectory, "PointCloud.pcd");
+            string texturedFilePath = System.IO.Path.Combine(currentDirectory, "TexturedPointCloud.pcd");
 
             bool isCaptured;
             if (chkCaptureWithNormals.Checked)
